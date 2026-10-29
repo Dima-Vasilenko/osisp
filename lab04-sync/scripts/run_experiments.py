@@ -26,9 +26,9 @@ CONFIGS = [
         "philosophers": 5,
         "cycles": 100,
         "think_min": 1,
-        "think_max": 5,
-        "eat_min": 5,
-        "eat_max": 15,
+        "think_max": 2,
+        "eat_min": 20,
+        "eat_max": 40,
     },
     {
         "name": "individual_fifo",

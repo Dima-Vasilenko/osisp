@@ -1,0 +1,35 @@
+flowchart LR
+    Main[main thread<br/>CLI, start, join, summary]
+
+    subgraph Philosophers
+        P0[Philosopher 0<br/>TID]
+        P1[Philosopher 1<br/>TID]
+        PN[Philosopher N-1<br/>TID]
+    end
+
+    CS[Critical section<br/>std::mutex]
+    Queue[(Central request queue)]
+    Forks[(fork_owner N<br/>-1 = free)]
+    Stats[(Statistics)]
+    Log[(Thread-safe event log)]
+
+    Main --> P0
+    Main --> P1
+    Main --> PN
+
+    P0 --> CS
+    P1 --> CS
+    PN --> CS
+
+    CS --> Queue
+    CS --> Forks
+    CS --> Stats
+    P0 --> Log
+    P1 --> Log
+    PN --> Log
+
+    Event[Auto-reset event<br/>per request]
+    CS --> Event
+    Event --> P0
+    Event --> P1
+    Event --> PN

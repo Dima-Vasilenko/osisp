@@ -1,0 +1,20 @@
+stateDiagram-v2
+    [*] --> THINKING
+
+    THINKING --> WAITING: think time expired, enqueue request
+    WAITING --> EATING: both forks granted, event signalled
+    WAITING --> THINKING: timeout, cancel request
+    EATING --> THINKING: eat time expired, release forks
+    THINKING --> FINISHED: all cycles completed
+    FINISHED --> [*]
+
+    note right of WAITING
+        Request is in the central queue.
+        In FIFO mode later requests
+        cannot overtake the head.
+    end note
+
+    note right of EATING
+        Both adjacent forks are owned
+        by this philosopher.
+    end note

@@ -1,0 +1,31 @@
+# Build directories and compiled artifacts
+build/
+**/build/
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+*.o
+*.obj
+*.a
+*.so
+*.dylib
+*.exe
+*.out
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary files
+*.tmp
+*.bak
+.~lock.*
+
+# Runtime files
+core
+core.*

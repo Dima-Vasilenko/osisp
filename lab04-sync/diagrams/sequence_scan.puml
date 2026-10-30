@@ -1,0 +1,43 @@
+@startuml
+title SCAN: a later request overtakes a blocked request
+
+skinparam sequenceMessageAlign center
+skinparam maxMessageSize 150
+
+participant "Philosopher P0" as P0
+participant "Philosopher P1" as P1
+participant "Philosopher P2" as P2
+participant "Critical section\n+ central queue" as CS
+participant "Event(req0)" as E0
+participant "Event(req2)" as E2
+
+P0 -> CS: lock()
+P0 -> CS: enqueue(req0)
+CS -> CS: req0 cannot be granted\n(forks are busy)
+CS --> P0: unlock()
+P0 -> E0: sem_timedwait(timeout)
+
+P1 -> CS: lock()
+P1 -> CS: enqueue(req1)
+CS -> CS: req1 cannot be granted
+CS --> P1: unlock()
+P1 -> P1: wait on its event
+
+P2 -> CS: lock()
+P2 -> CS: enqueue(req2)
+CS -> CS: dispatch_locked()\nscan queue from front
+CS -> CS: req0 blocked, skip
+CS -> CS: req1 blocked, skip
+CS -> CS: req2 can be granted\novertakes++
+CS -> E2: sem_post()
+CS --> P2: unlock()
+
+E2 --> P2: wake up
+P2 -> CS: lock()
+CS --> P2: req2 = GRANTED
+CS --> P2: unlock()
+P2 -> P2: EATING
+
+note over P0,E0: req0 still waits.\nThis demonstrates possible\nstarvation in SCAN mode.
+
+@enduml

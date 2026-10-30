@@ -29,3 +29,8 @@ Makefile
 # Runtime files
 core
 core.*
+
+# Python cache
+__pycache__/
+*.py[cod]
+.pytest_cache/

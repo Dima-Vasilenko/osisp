@@ -1,0 +1,11 @@
+environment
+timestamp=2026-10-30T21:22:28
+platform=Linux-7.0.0-34-generic-x86_64-with-glibc2.39
+machine=x86_64
+processor=x86_64
+python=3.12.3
+uname=Linux HP 7.0.0-34-generic #34~24.04.1-Ubuntu SMP PREEMPT_DYNAMIC Fri Sep  4 15:38:29 UTC 2 x86_64 x86_64 x86_64 GNU/Linux
+CPU(s)=                                  12
+Model name=                              AMD Ryzen 5 5500U with Radeon Graphics
+Thread(s) per core=                      2
+Core(s) per socket=                      6

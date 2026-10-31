@@ -1,0 +1,40 @@
+@startuml
+skinparam defaultFontName "DejaVu Sans"
+skinparam dpi 200
+skinparam shadowing false
+skinparam componentStyle rectangle
+left to right direction
+title Архитектура программного комплекса
+
+package "Процесс lab04_sync" {
+  [Главный поток\nCLI, запуск, join, сводка] as Main
+  package "Потоки-философы" {
+    [P0\nTID] as P0
+    [P1\nTID] as P1
+    [P(N-1)\nTID] as PN
+  }
+  [Критическая секция\nstd::mutex] as CS
+  database "Центральная очередь\nstd::deque<Request*>" as Q
+  database "fork_owner[N]\n-1 = свободна" as F
+  database "Статистика\nи времена ожидания" as S
+  [Журнал событий\nотдельный мьютекс] as Log
+  [Event заявки\nsem_t] as E
+}
+
+Main --> P0
+Main --> P1
+Main --> PN
+P0 --> CS
+P1 --> CS
+PN --> CS
+CS --> Q
+CS --> F
+CS --> S
+P0 --> Log
+P1 --> Log
+PN --> Log
+CS --> E
+E --> P0
+E --> P1
+E --> PN
+@enduml

@@ -1,0 +1,35 @@
+@startuml
+skinparam defaultFontName "DejaVu Sans"
+skinparam dpi 200
+skinparam shadowing false
+title Состояния философа
+
+state "THINKING\nобдумывание" as THINKING
+state "WAITING\nожидание вилок" as WAITING
+state "EATING\nприём пищи" as EATING
+state "FINISHED\nвсе циклы выполнены" as FINISHED
+state "ABORTED\nаварийное завершение" as ABORTED
+
+[*] --> THINKING
+THINKING --> WAITING : время обдумывания истекло,\nзаявка поставлена в очередь
+WAITING --> EATING : обе вилки выданы,\nEvent переведён в сигнальное состояние
+WAITING --> THINKING : тайм-аут,\nзаявка отменена
+EATING --> THINKING : время еды истекло,\nвилки освобождены
+THINKING --> FINISHED : все циклы выполнены
+THINKING --> ABORTED : получен флаг остановки
+WAITING --> ABORTED : получен флаг остановки
+EATING --> ABORTED : получен флаг остановки
+FINISHED --> [*]
+ABORTED --> [*]
+
+note right of WAITING
+  Заявка находится в центральной очереди.
+  В режиме FIFO более поздние заявки
+  не могут обойти голову очереди.
+end note
+
+note right of EATING
+  Обе соседние вилки закреплены
+  за данным философом.
+end note
+@enduml

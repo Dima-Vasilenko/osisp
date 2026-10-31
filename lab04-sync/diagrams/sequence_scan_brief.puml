@@ -1,0 +1,25 @@
+@startuml
+skinparam defaultFontName "DejaVu Sans"
+skinparam dpi 200
+skinparam shadowing false
+skinparam sequenceMessageAlign center
+skinparam maxMessageSize 150
+skinparam ParticipantPadding 10
+skinparam BoxPadding 4
+title SCAN: краткая последовательность обхода
+
+participant "Философ P0" as P0
+participant "Философ P1" as P1
+participant "Философ P2" as P2
+participant "CS + очередь" as CS
+participant "Event(req2)" as E2
+
+P0 -> CS: enqueue(req0) — заблокирована
+P1 -> CS: enqueue(req1) — заблокирована
+P2 -> CS: enqueue(req2)
+CS -> CS: SCAN: пропустить req0 и req1
+CS -> E2: grant(req2); sem_post(); overtakes++
+E2 --> P2: пробуждение; EATING
+
+note over P0: req0 продолжает ждать —\nвозможно голодание
+@enduml

@@ -1,0 +1,49 @@
+@startuml
+skinparam defaultFontName "DejaVu Sans"
+skinparam dpi 200
+skinparam shadowing false
+skinparam sequenceMessageAlign center
+skinparam maxMessageSize 160
+title SCAN: обход заблокированной заявки
+
+participant "Философ P0" as P0
+participant "Философ P1" as P1
+participant "Философ P2" as P2
+participant "Критическая секция\nи центральная очередь" as CS
+participant "Event(req0)" as E0
+participant "Event(req2)" as E2
+
+P0 -> CS: lock()
+P0 -> CS: enqueue(req0)
+CS -> CS: req0 нельзя выдать\n(вилки заняты)
+CS --> P0: unlock()
+P0 -> E0: sem_timedwait(timeout)
+
+P1 -> CS: lock()
+P1 -> CS: enqueue(req1)
+CS -> CS: req1 нельзя выдать
+CS --> P1: unlock()
+P1 -> P1: ожидание на своём Event
+
+P2 -> CS: lock()
+P2 -> CS: enqueue(req2)
+CS -> CS: dispatch_locked()\nпросмотр очереди с начала
+CS -> CS: req0 заблокирована, пропуск
+CS -> CS: req1 заблокирована, пропуск
+CS -> CS: req2 можно выдать\novertakes++
+CS -> E2: sem_post()
+CS --> P2: unlock()
+
+E2 --> P2: пробуждение
+P2 -> CS: lock()
+CS --> P2: req2 = GRANTED
+CS --> P2: unlock()
+P2 -> P2: EATING
+
+note over P0,E0
+  req0 продолжает ждать.
+  Это демонстрирует возможное
+  голодание в режиме SCAN.
+end note
+
+@enduml

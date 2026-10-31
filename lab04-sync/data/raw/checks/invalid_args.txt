@@ -1,0 +1,23 @@
+ERROR: --philosophers must be between 2 and 128
+Usage: ./lab04-sync/build/lab04_sync [options]
+
+Model parameters:
+  --philosophers N       number of philosophers (default 5)
+  --cycles C             cycles per philosopher (default 100)
+  --student-id ID        student id (default 28)
+  --seed S               random seed (default 1000 + ID * 97)
+  --individual           use individual seed and cycle count
+  --mode fifo|scan       queue service mode (default fifo)
+  --think-min-ms N       minimum thinking time (default 1)
+  --think-max-ms N       maximum thinking time (default 5)
+  --eat-min-ms N         minimum eating time (default 5)
+  --eat-max-ms N         maximum eating time (default 15)
+  --timeout-ms N         request timeout (default 30000)
+  --max-duration-ms N    experiment limit (default 180000)
+
+Output:
+  --log-file PATH        event log file
+  --wait-csv PATH        per-request wait CSV
+  --verbose              print events to stdout
+  --quiet                no verbose output
+  --help                 show this help

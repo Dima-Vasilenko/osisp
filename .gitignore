@@ -34,3 +34,7 @@ core.*
 __pycache__/
 *.py[cod]
 .pytest_cache/
+
+# Local report previews
+lab04-sync/report/preview/
+lab04-sync/report/tmp/

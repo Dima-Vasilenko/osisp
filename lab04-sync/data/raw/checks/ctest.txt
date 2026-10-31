@@ -1,0 +1,8 @@
+Internal ctest changing into directory: /home/dima/sem5/osisp_labs/lab04-sync/build
+Test project /home/dima/sem5/osisp_labs/lab04-sync/build
+    Start 1: lab04_checks
+1/1 Test #1: lab04_checks .....................   Passed    1.51 sec
+
+100% tests passed, 0 tests failed out of 1
+
+Total Test time (real) =   1.51 sec

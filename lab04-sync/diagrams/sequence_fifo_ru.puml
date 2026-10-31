@@ -1,0 +1,44 @@
+@startuml
+skinparam defaultFontName "DejaVu Sans"
+skinparam dpi 200
+skinparam shadowing false
+skinparam sequenceMessageAlign center
+skinparam maxMessageSize 150
+title FIFO: постановка заявки, ожидание, выдача и освобождение
+
+participant "Философ P0" as P0
+participant "Философ P1" as P1
+participant "Критическая секция\nи центральная очередь" as CS
+participant "Event(req0)" as E0
+
+P0 -> CS: lock()
+P0 -> CS: enqueue(req0)
+CS -> CS: dispatch_locked()
+CS --> P0: req0 = WAITING\nunlock()
+P0 -> E0: sem_timedwait(timeout)
+
+note over P0,E0
+  P0 заблокирован, пока заявка
+  не будет выдана или не истечёт
+  тайм-аут.
+end note
+
+P1 -> CS: lock()
+P1 -> CS: освободить обе вилки
+CS -> CS: dispatch_locked()\nhead = req0
+CS -> CS: grant(req0)\nназначить владельцев вилок
+CS -> E0: sem_post()
+CS --> P1: unlock()
+
+E0 --> P0: пробуждение
+P0 -> CS: lock()
+CS --> P0: req0 = GRANTED
+CS --> P0: unlock()
+P0 -> P0: EATING
+
+P0 -> CS: lock()
+P0 -> CS: освободить обе вилки\ndispatch_locked()
+CS --> P0: unlock()
+P0 -> P0: THINKING
+
+@enduml

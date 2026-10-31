@@ -1,0 +1,26 @@
+@startuml
+skinparam defaultFontName "DejaVu Sans"
+skinparam dpi 200
+skinparam shadowing false
+skinparam sequenceMessageAlign center
+skinparam maxMessageSize 130
+skinparam ParticipantPadding 12
+skinparam BoxPadding 4
+title FIFO: краткая последовательность выдачи
+
+participant "Философ P0" as P0
+participant "Философ P1" as P1
+participant "CS + очередь" as CS
+participant "Event(req0)" as E0
+
+P0 -> CS: lock(); enqueue(req0)
+CS -> CS: dispatch(): голова заблокирована
+P0 -> E0: sem_timedwait(timeout)
+
+P1 -> CS: освободить обе вилки
+CS -> E0: grant(req0); sem_post()
+E0 --> P0: пробуждение
+
+P0 -> CS: проверить GRANTED,\nесть, освободить вилки
+P0 -> P0: EATING -> THINKING
+@enduml

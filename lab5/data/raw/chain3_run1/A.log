@@ -1,0 +1,30 @@
+[2026-11-09 17:50:26.236] ROLE=PEER id=A event=START host=127.0.0.1 port=26337 id=A
+[2026-11-09 17:50:26.237] ROLE=PEER id=A event=CONNECT_ESTABLISHED peer=127.0.0.1:23869
+[2026-11-09 17:50:26.237] ROLE=PEER id=A event=HELLO_SEND peer=127.0.0.1:23869
+[2026-11-09 17:50:26.238] ROLE=PEER id=A event=HELLO_RECV peer=B remote=127.0.0.1:23869
+[2026-11-09 17:50:26.398] ROLE=PEER id=A event=EXPERIMENT_START messages=20 dest=C interval_ms=50 ttl=5
+[2026-11-09 17:50:26.398] ROLE=PEER id=A event=SEND_CHAT msgid=A-1794235826398-0 dest=C ttl=5 targets=1 size=99
+[2026-11-09 17:50:26.459] ROLE=PEER id=A event=SEND_CHAT msgid=A-1794235826459-1 dest=C ttl=5 targets=1 size=99
+[2026-11-09 17:50:26.519] ROLE=PEER id=A event=SEND_CHAT msgid=A-1794235826519-2 dest=C ttl=5 targets=1 size=99
+[2026-11-09 17:50:26.580] ROLE=PEER id=A event=SEND_CHAT msgid=A-1794235826580-3 dest=C ttl=5 targets=1 size=99
+[2026-11-09 17:50:26.641] ROLE=PEER id=A event=SEND_CHAT msgid=A-1794235826640-4 dest=C ttl=5 targets=1 size=99
+[2026-11-09 17:50:26.701] ROLE=PEER id=A event=SEND_CHAT msgid=A-1794235826701-5 dest=C ttl=5 targets=1 size=99
+[2026-11-09 17:50:26.762] ROLE=PEER id=A event=SEND_CHAT msgid=A-1794235826762-6 dest=C ttl=5 targets=1 size=99
+[2026-11-09 17:50:26.823] ROLE=PEER id=A event=SEND_CHAT msgid=A-1794235826822-7 dest=C ttl=5 targets=1 size=99
+[2026-11-09 17:50:26.883] ROLE=PEER id=A event=SEND_CHAT msgid=A-1794235826883-8 dest=C ttl=5 targets=1 size=99
+[2026-11-09 17:50:26.944] ROLE=PEER id=A event=SEND_CHAT msgid=A-1794235826944-9 dest=C ttl=5 targets=1 size=100
+[2026-11-09 17:50:27.004] ROLE=PEER id=A event=SEND_CHAT msgid=A-1794235827004-10 dest=C ttl=5 targets=1 size=101
+[2026-11-09 17:50:27.065] ROLE=PEER id=A event=SEND_CHAT msgid=A-1794235827065-11 dest=C ttl=5 targets=1 size=101
+[2026-11-09 17:50:27.125] ROLE=PEER id=A event=SEND_CHAT msgid=A-1794235827125-12 dest=C ttl=5 targets=1 size=101
+[2026-11-09 17:50:27.186] ROLE=PEER id=A event=SEND_CHAT msgid=A-1794235827186-13 dest=C ttl=5 targets=1 size=101
+[2026-11-09 17:50:27.247] ROLE=PEER id=A event=SEND_CHAT msgid=A-1794235827246-14 dest=C ttl=5 targets=1 size=101
+[2026-11-09 17:50:27.307] ROLE=PEER id=A event=SEND_CHAT msgid=A-1794235827307-15 dest=C ttl=5 targets=1 size=101
+[2026-11-09 17:50:27.368] ROLE=PEER id=A event=SEND_CHAT msgid=A-1794235827368-16 dest=C ttl=5 targets=1 size=101
+[2026-11-09 17:50:27.428] ROLE=PEER id=A event=SEND_CHAT msgid=A-1794235827428-17 dest=C ttl=5 targets=1 size=101
+[2026-11-09 17:50:27.489] ROLE=PEER id=A event=SEND_CHAT msgid=A-1794235827489-18 dest=C ttl=5 targets=1 size=101
+[2026-11-09 17:50:27.550] ROLE=PEER id=A event=SEND_CHAT msgid=A-1794235827550-19 dest=C ttl=5 targets=1 size=101
+[2026-11-09 17:50:27.610] ROLE=PEER id=A event=SENT_ALL messages=20
+[2026-11-09 17:50:29.241] ROLE=PEER id=A event=PEER_CLOSED peer=127.0.0.1:23869
+[2026-11-09 17:50:29.242] ROLE=PEER id=A event=DISCONNECTED peer=B
+[2026-11-09 17:50:29.242] ROLE=PEER id=A event=STOP reason=normal
+[2026-11-09 17:50:29.242] ROLE=PEER id=A event=SUMMARY sent_chat=20 delivered=0 forwarded=0 dropped_ttl=0 dropped_dup=0 dropped_no_route=0 protocol_errors=0 bytes_sent=2107 bytes_received=26 accepted=0 established=1 connect_failures=0 latency_samples=0 latency_us_sum=0 latency_us_min=0 latency_us_max=0

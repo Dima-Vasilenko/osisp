@@ -1,0 +1,49 @@
+[2026-11-09 17:50:44.875] ROLE=PEER id=D event=START host=127.0.0.1 port=23861 id=D
+[2026-11-09 17:50:45.037] ROLE=PEER id=D event=INTERACTIVE commands: msg <dest> <text> | stats | help | quit
+[2026-11-09 17:50:45.228] ROLE=PEER id=D event=CONNECT_ACCEPTED remote=127.0.0.1:39072
+[2026-11-09 17:50:45.228] ROLE=PEER id=D event=HELLO_SEND peer=127.0.0.1:39072
+[2026-11-09 17:50:45.228] ROLE=PEER id=D event=HELLO_RECV peer=C remote=127.0.0.1:39072
+[2026-11-09 17:50:46.093] ROLE=PEER id=D event=RECV_CHAT msgid=A-1794235846092-0 from=A dest=D ttl=3
+[2026-11-09 17:50:46.093] ROLE=PEER id=D event=DELIVER msgid=A-1794235846092-0 from=A text=payload #1 latency_us=814
+[2026-11-09 17:50:46.154] ROLE=PEER id=D event=RECV_CHAT msgid=A-1794235846153-1 from=A dest=D ttl=3
+[2026-11-09 17:50:46.154] ROLE=PEER id=D event=DELIVER msgid=A-1794235846153-1 from=A text=payload #2 latency_us=693
+[2026-11-09 17:50:46.214] ROLE=PEER id=D event=RECV_CHAT msgid=A-1794235846213-2 from=A dest=D ttl=3
+[2026-11-09 17:50:46.214] ROLE=PEER id=D event=DELIVER msgid=A-1794235846213-2 from=A text=payload #3 latency_us=680
+[2026-11-09 17:50:46.275] ROLE=PEER id=D event=RECV_CHAT msgid=A-1794235846274-3 from=A dest=D ttl=3
+[2026-11-09 17:50:46.275] ROLE=PEER id=D event=DELIVER msgid=A-1794235846274-3 from=A text=payload #4 latency_us=639
+[2026-11-09 17:50:46.336] ROLE=PEER id=D event=RECV_CHAT msgid=A-1794235846335-4 from=A dest=D ttl=3
+[2026-11-09 17:50:46.336] ROLE=PEER id=D event=DELIVER msgid=A-1794235846335-4 from=A text=payload #5 latency_us=655
+[2026-11-09 17:50:46.397] ROLE=PEER id=D event=RECV_CHAT msgid=A-1794235846396-5 from=A dest=D ttl=3
+[2026-11-09 17:50:46.397] ROLE=PEER id=D event=DELIVER msgid=A-1794235846396-5 from=A text=payload #6 latency_us=630
+[2026-11-09 17:50:46.458] ROLE=PEER id=D event=RECV_CHAT msgid=A-1794235846457-6 from=A dest=D ttl=3
+[2026-11-09 17:50:46.458] ROLE=PEER id=D event=DELIVER msgid=A-1794235846457-6 from=A text=payload #7 latency_us=661
+[2026-11-09 17:50:46.518] ROLE=PEER id=D event=RECV_CHAT msgid=A-1794235846518-7 from=A dest=D ttl=3
+[2026-11-09 17:50:46.518] ROLE=PEER id=D event=DELIVER msgid=A-1794235846518-7 from=A text=payload #8 latency_us=526
+[2026-11-09 17:50:46.579] ROLE=PEER id=D event=RECV_CHAT msgid=A-1794235846578-8 from=A dest=D ttl=3
+[2026-11-09 17:50:46.579] ROLE=PEER id=D event=DELIVER msgid=A-1794235846578-8 from=A text=payload #9 latency_us=704
+[2026-11-09 17:50:46.639] ROLE=PEER id=D event=RECV_CHAT msgid=A-1794235846639-9 from=A dest=D ttl=3
+[2026-11-09 17:50:46.640] ROLE=PEER id=D event=DELIVER msgid=A-1794235846639-9 from=A text=payload #10 latency_us=706
+[2026-11-09 17:50:46.700] ROLE=PEER id=D event=RECV_CHAT msgid=A-1794235846699-10 from=A dest=D ttl=3
+[2026-11-09 17:50:46.700] ROLE=PEER id=D event=DELIVER msgid=A-1794235846699-10 from=A text=payload #11 latency_us=855
+[2026-11-09 17:50:46.761] ROLE=PEER id=D event=RECV_CHAT msgid=A-1794235846760-11 from=A dest=D ttl=3
+[2026-11-09 17:50:46.761] ROLE=PEER id=D event=DELIVER msgid=A-1794235846760-11 from=A text=payload #12 latency_us=730
+[2026-11-09 17:50:46.822] ROLE=PEER id=D event=RECV_CHAT msgid=A-1794235846821-12 from=A dest=D ttl=3
+[2026-11-09 17:50:46.822] ROLE=PEER id=D event=DELIVER msgid=A-1794235846821-12 from=A text=payload #13 latency_us=735
+[2026-11-09 17:50:46.883] ROLE=PEER id=D event=RECV_CHAT msgid=A-1794235846882-13 from=A dest=D ttl=3
+[2026-11-09 17:50:46.883] ROLE=PEER id=D event=DELIVER msgid=A-1794235846882-13 from=A text=payload #14 latency_us=767
+[2026-11-09 17:50:46.943] ROLE=PEER id=D event=RECV_CHAT msgid=A-1794235846943-14 from=A dest=D ttl=3
+[2026-11-09 17:50:46.943] ROLE=PEER id=D event=DELIVER msgid=A-1794235846943-14 from=A text=payload #15 latency_us=589
+[2026-11-09 17:50:47.004] ROLE=PEER id=D event=RECV_CHAT msgid=A-1794235847004-15 from=A dest=D ttl=3
+[2026-11-09 17:50:47.004] ROLE=PEER id=D event=DELIVER msgid=A-1794235847004-15 from=A text=payload #16 latency_us=682
+[2026-11-09 17:50:47.066] ROLE=PEER id=D event=RECV_CHAT msgid=A-1794235847065-16 from=A dest=D ttl=3
+[2026-11-09 17:50:47.066] ROLE=PEER id=D event=DELIVER msgid=A-1794235847065-16 from=A text=payload #17 latency_us=788
+[2026-11-09 17:50:47.127] ROLE=PEER id=D event=RECV_CHAT msgid=A-1794235847126-17 from=A dest=D ttl=3
+[2026-11-09 17:50:47.127] ROLE=PEER id=D event=DELIVER msgid=A-1794235847126-17 from=A text=payload #18 latency_us=590
+[2026-11-09 17:50:47.188] ROLE=PEER id=D event=RECV_CHAT msgid=A-1794235847187-18 from=A dest=D ttl=3
+[2026-11-09 17:50:47.188] ROLE=PEER id=D event=DELIVER msgid=A-1794235847187-18 from=A text=payload #19 latency_us=678
+[2026-11-09 17:50:47.249] ROLE=PEER id=D event=RECV_CHAT msgid=A-1794235847248-19 from=A dest=D ttl=3
+[2026-11-09 17:50:47.249] ROLE=PEER id=D event=DELIVER msgid=A-1794235847248-19 from=A text=payload #20 latency_us=695
+[2026-11-09 17:50:49.234] ROLE=PEER id=D event=PEER_CLOSED peer=127.0.0.1:39072
+[2026-11-09 17:50:49.235] ROLE=PEER id=D event=DISCONNECTED peer=C
+[2026-11-09 17:50:49.235] ROLE=PEER id=D event=STOP reason=normal
+[2026-11-09 17:50:49.235] ROLE=PEER id=D event=SUMMARY sent_chat=0 delivered=20 forwarded=0 dropped_ttl=0 dropped_dup=0 dropped_no_route=0 protocol_errors=0 bytes_sent=26 bytes_received=2107 accepted=1 established=0 connect_failures=0 latency_samples=20 latency_us_sum=13817 latency_us_min=526 latency_us_max=855

@@ -173,6 +173,10 @@ ctest --test-dir build --output-on-failure
 5. некорректное сообщение и частичный приём;
 6. недоступный сервер.
 
+Результат финальной проверки: GCC 13.3.0, CTest — 6 из 6 проверок пройдено;
+эксперименты `chain3` и `chain4` повторены по три раза, ошибок протокола
+и потерь сообщений нет.
+
 ## Эксперименты
 
 Сбор сырых данных (по 3 запуска для цепочки из 3 и 4 узлов):
@@ -230,7 +234,7 @@ lab5/
 Сборка отчёта:
 
 ```bash
-typst compile report/report.typ report/report.pdf
+typst compile --root . report/report.typ report/report.pdf
 ```
 
 ## Репозиторий Git

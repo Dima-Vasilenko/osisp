@@ -1,0 +1,28 @@
+@startuml
+title Вариант 6: доставка сообщения в цепочке из четырёх узлов
+skinparam monochrome true
+skinparam sequenceMessageAlign center
+
+participant "Узел A\nid=A" as A
+participant "Узел B\nid=B" as B
+participant "Узел C\nid=C" as C
+participant "Узел D\nid=D" as D
+
+note over A, D: Установление соединений A-B, B-C, C-D
+A -> B: HELLO id=A
+B -> A: HELLO id=B
+B -> C: HELLO id=B
+C -> B: HELLO id=C
+C -> D: HELLO id=C
+D -> C: HELLO id=D
+
+A -> B: CHAT msgid=10 dest=D ttl=5
+note right of B: TTL уменьшается\nmsgid запоминается
+B -> C: CHAT msgid=10 dest=D ttl=4
+C -> D: CHAT msgid=10 dest=D ttl=3
+note right of D: DELIVER
+
+A -> B: CHAT msgid=11 dest=D ttl=1
+B -> C: CHAT msgid=11 dest=D ttl=0
+note right of C: TTL = 0\nDROP_TTL
+@enduml

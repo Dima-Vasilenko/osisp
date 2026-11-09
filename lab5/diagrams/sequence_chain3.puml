@@ -1,0 +1,35 @@
+@startuml
+title Вариант 6: доставка сообщения в цепочке из трёх узлов
+skinparam monochrome true
+skinparam sequenceMessageAlign center
+
+participant "Узел A\nid=A" as A
+participant "Узел B\nid=B" as B
+participant "Узел C\nid=C" as C
+
+note over A, C: Запуск узлов и установление TCP-соединений
+A -> B: HELLO id=A
+B -> A: HELLO id=B
+B -> C: HELLO id=B
+C -> B: HELLO id=C
+
+note over A, C: Сообщение, адресованное узлу C
+A -> B: CHAT msgid=1 dest=C ttl=3 text=ping
+note right of B: dest != B, TTL > 0\nmsgid ещё не встречался
+B -> C: CHAT msgid=1 dest=C ttl=2
+note right of C: dest = C\nDELIVER, запись в журнал
+
+note over A, C: Неизвестный адресат
+A -> B: CHAT msgid=2 dest=Z ttl=3
+B -> C: CHAT msgid=2 dest=Z ttl=2
+note right of C: Маршрута нет\nNO_ROUTE
+
+note over A, C: Исчерпание TTL
+A -> B: CHAT msgid=3 dest=Z ttl=1
+B -> C: CHAT msgid=3 dest=Z ttl=0
+note right of C: TTL = 0\nDROP_TTL
+
+note over A, C: Штатное завершение
+A -> B: закрытие TCP-соединения
+B -> C: закрытие TCP-соединения
+@enduml

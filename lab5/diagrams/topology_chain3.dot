@@ -1,0 +1,14 @@
+digraph chain3 {
+    rankdir=LR;
+    graph [fontname="DejaVu Sans", bgcolor="white"];
+    node [shape=box, style="rounded,filled", fillcolor="#e8f0fe",
+          fontname="DejaVu Sans", color="#2f5597"];
+    edge [fontname="DejaVu Sans", color="#2f5597"];
+
+    A [label="A\n127.0.0.1:20028"];
+    B [label="B\n127.0.0.1:20029"];
+    C [label="C\n127.0.0.1:20030"];
+
+    A -> B [label="TCP"];
+    B -> C [label="TCP"];
+}

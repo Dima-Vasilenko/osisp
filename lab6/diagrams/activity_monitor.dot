@@ -1,0 +1,34 @@
+digraph activity {
+    graph [rankdir=TB, bgcolor="white", pad=0.3,
+           fontname="DejaVu Sans", fontsize=12];
+    node [shape=box, style="rounded,filled", fillcolor="#dce6f2",
+          color="#2f5597", fontname="DejaVu Sans", fontsize=10];
+    edge [color="#2f5597", fontname="DejaVu Sans", fontsize=9];
+
+    start [shape=oval, label="Начало monitor", fillcolor="#c6e0b4",
+           color="#548235"];
+    open [label="Открыть ключ\nи прочитать снимок"];
+    watch [label="inotify_add_watch\nдля выбранного ключа"];
+    ready [label="Создать ready-файл\nи записать MONITOR_START"];
+    poll [shape=diamond, label="poll(inotify)\nесть событие?"];
+    timeout [shape=diamond, label="timeout\nили stop?"];
+    debounce [label="Выдержать окно\nобъединения событий"];
+    read [label="Повторно прочитать\nснимок значений"];
+    diff [label="Сравнить снимки\nи определить разницу"];
+    log [label="Записать REG_NOTIFY,\nREG_DIFF и изменения"];
+    limit [shape=diamond, label="max-events\nдостигнут?"];
+    cleanup [label="Закрыть inotify,\nзаписать MONITOR_STOP", fillcolor="#fff2cc",
+             color="#bf9000"];
+    stop [shape=oval, label="Конец", fillcolor="#f8cbad",
+          color="#c55a11"];
+
+    start -> open -> watch -> ready -> poll;
+    poll -> debounce [label="да"];
+    poll -> timeout [label="нет"];
+    timeout -> cleanup [label="да"];
+    timeout -> poll [label="нет"];
+    debounce -> read -> diff -> log -> limit;
+    limit -> cleanup [label="да"];
+    limit -> poll [label="нет"];
+    cleanup -> stop;
+}

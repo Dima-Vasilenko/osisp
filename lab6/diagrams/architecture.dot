@@ -1,0 +1,33 @@
+digraph architecture {
+    graph [rankdir=LR, bgcolor="white", pad=0.3,
+           fontname="DejaVu Sans", fontsize=12];
+    node [shape=box, style="rounded,filled", fillcolor="#dce6f2",
+          color="#2f5597", fontname="DejaVu Sans", fontsize=10];
+    edge [color="#2f5597", fontname="DejaVu Sans", fontsize=9];
+
+    cli [label="CLI\nmain.cpp"];
+    registry [label="Registry\nфайловый аналог реестра"];
+    monitor [label="Monitor\ninotify + poll"];
+    logger [label="Logger\nжурнал операций"];
+
+    subgraph cluster_storage {
+        label="Хранилище учебной области";
+        color="#808080";
+        style="rounded,dashed";
+        root [label="HKEY_CURRENT_USER/Software/\nOSiSP/Lab06/Student_028/Run_*"];
+        files [label="ключи = каталоги\nзначения = файлы *.val"];
+        root -> files [style=dashed, arrowhead=none];
+    }
+
+    kernel [label="Ядро Linux\ninotify", fillcolor="#fff2cc",
+            color="#bf9000"];
+
+    cli -> registry [label="init / set / delete /\nlist"];
+    cli -> monitor [label="watch"];
+    registry -> root [label="чтение / запись"];
+    registry -> logger [label="REG_*"];
+    monitor -> kernel [label="inotify_add_watch"];
+    kernel -> monitor [label="события IN_*"];
+    monitor -> registry [label="read_snapshot"];
+    monitor -> logger [label="REG_NOTIFY /\nREG_DIFF"];
+}

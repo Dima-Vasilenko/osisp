@@ -1,0 +1,5 @@
+[2026-11-14 09:03:20.362] MONITOR event=MONITOR_START key=HKEY_CURRENT_USER/Software/OSiSP/Lab06/Student_028/Run_1_2 timeout_ms=6000 max_events=1
+[2026-11-14 09:03:20.429] MONITOR event=REG_NOTIFY key=HKEY_CURRENT_USER/Software/OSiSP/Lab06/Student_028/Run_1_2 events=IN_CREATE|IN_MODIFY|IN_CLOSE_WRITE|IN_MOVED_FROM|IN_MOVED_TO ts_us=1794636200369212
+[2026-11-14 09:03:20.429] MONITOR event=REG_DIFF added=0 removed=0 changed=1 keys_added=0 keys_removed=0 read_us=229
+[2026-11-14 09:03:20.429] MONITOR event=REG_MODIFY key=HKEY_CURRENT_USER/Software/OSiSP/Lab06/Student_028/Run_1_2 name=Item_000 type=REG_SZ old=text-3716-0 new=changed-2-0
+[2026-11-14 09:03:20.430] MONITOR event=MONITOR_STOP notifications=1 status=OK

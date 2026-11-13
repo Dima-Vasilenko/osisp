@@ -1,0 +1,9 @@
+config,initial_values,operation,requested_changes,debounce_ms,runs,mean_latency_ms,min_latency_ms,max_latency_ms,mean_read_ms,mean_detected_total,mean_notifications,errors
+values_1,1,modify,1,60,3,3.361,2.984,3.656,0.266,1.00,1.00,0
+values_10,10,modify,1,60,3,3.119,2.998,3.234,0.447,1.00,1.00,0
+values_100,100,modify,1,60,3,3.203,3.017,3.527,2.365,1.00,1.00,0
+values_500,500,modify,1,60,3,2.889,2.560,3.275,8.243,1.00,1.00,0
+change_1,100,modify,1,60,3,2.993,2.769,3.383,2.231,1.00,1.00,0
+change_5,100,modify,5,300,3,2.707,2.603,2.869,2.217,5.00,1.00,0
+change_10,100,modify,10,300,3,2.730,2.703,2.763,1.949,10.00,1.00,0
+delete_1,100,delete,1,60,3,2.631,2.341,3.057,2.057,1.00,1.00,0
